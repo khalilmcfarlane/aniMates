@@ -6,11 +6,15 @@ app = settings.init_flask_app()
 db = SQLAlchemy(app)
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(30), unique=True, nullable=False)
-    password = db.Column(db.String(30), unique=True, nullable=False)
+    __tablename__ = 'users'
+    id = db.Column(db.Integer)
+    username = db.Column(db.String(30), primary_key=True)
+    password = db.Column(db.String(30), primary_key=True)
+
 
     def __init__(self, username, password):
         self.username = username
-        self,password = password
+        self.password = password
+        
+db.create_all()
  
