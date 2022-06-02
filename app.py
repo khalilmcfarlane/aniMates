@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 import models
 import settings
+from random import randint
 
 app = settings.init_flask_app()
 db = SQLAlchemy(app)
@@ -17,9 +18,12 @@ def register():
         username = request.form['username']
         password = request.form['password']
         User = models.User(username, password)
+        User.id = randint(100, 1000000000)
+        session['username'] = username
+
+
         db.session.add(User)
         db.session.commit()
-        session['username'] = username
         return render_template("index.html")
 
     return render_template("signup.html")
@@ -32,7 +36,7 @@ def login():
     username = request.form['username']
     password = request.form['password']
 
-    User = db.session.query(user).filter(user.username==username, user.password==password)
+    User = db.session.query(models.User).filter(models.User.username == username, models.User.password == password)
     if User is not None:
         session['username'] = username
         return render_template("login.html")
