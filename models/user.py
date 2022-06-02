@@ -1,6 +1,9 @@
-from enum import unique
-import flask
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import settings
+
+app = settings.init_flask_app()
+db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
