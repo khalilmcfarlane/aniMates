@@ -2,23 +2,30 @@
 <html lang="en">
   <head>
       <meta charset="utf-8">
-      <title>Register</title>
+      <title>Sign Up</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../static/login.css">
       <link rel="stylesheet" href="../static/bootstrap-5.0.2-dist 2/css/bootstrap.min.css">
       <script src="../static/bootstrap-5.0.2-dist 2/js/bootstrap.min.js"> </script>
   </head>
   <body>
-      <form action="/signup" method="post">
-          <h5>Enter user details</h5>
-          <div>
-              <input type="text" name="username" placeholder="username">
-          </div>
-          <div>
-              <input type="text" name="password" placeholder="password">
-          </div>
-          <div>
-              <button >Submit</button>
-          </div>
-      </form>
+    <nav>
+        <ul>
+            <li><a class="homepage" href="{{ url_for('index') }}">AniMates</a></li>
+            <li><a class="login" href="{{ url_for('login') }}">Login</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-holder"> 
+        <h1 id="login-header">Sign Up</h1>
+        <form id="login-form" action="/signup" method="post">
+            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+            <input type="submit" value="Submit" id="login-form-submit">
+        </form>
+    </main>
   </body>
 
 </html>

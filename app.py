@@ -1,13 +1,11 @@
 from flask import Flask, redirect, render_template, request, session, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from random import randint
 import models
 import settings
-from random import randint
-from jikanpy import Jikan
 
 app = settings.init_flask_app()
 db = SQLAlchemy(app)
-jikan = Jikan()
 
 
 @app.route('/')
@@ -34,7 +32,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if "username" in session:
-        redirect(url_for('profile'))
+        redirect('/profiles/%s' % session['username'])
         # send to profile page
     # else login 
     if request.method == 'POST':
@@ -45,7 +43,7 @@ def login():
         if User is not None:
             session['username'] = username
             flash('login succesful', 'success')
-            return render_template("login.html")
+            return redirect('/profiles/%s' % username)
         else:
             error = 'wrong username/password'
             render_template("login.html", error)
@@ -59,9 +57,11 @@ def logout():
     flash("you've been logged out",'success')
     return redirect(url_for('login'))
 
-@app.route('/profile')
-def profile():
+@app.route('/profiles/<username>')
+def profile(username):
     return render_template("profile.html")
+
+
 if __name__ == '__main__':
    
 

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
     <head>
         <title>Home Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/bootstrap-5.0.2-dist 2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css">
         <script src="../static/bootstrap-5.0.2-dist 2/js/bootstrap.min.js"> </script>
     </head>
     <body>
-       <div>
+       <nav>
         <ul>
             <li><a class="signup" href="{{ url_for('register') }}">Sign Up</a></li>
             <li><a class="login" href="{{ url_for('login') }}">Log in</a></li>
             <li><a href="{{ url_for('logout') }}"><input type="button" value="LogOut"></a></li>
         </ul>
 
-       </div>
+        </nav>
     </body>
