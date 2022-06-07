@@ -14,7 +14,15 @@
             <li><a class="signup" href="{{ url_for('register') }}">Sign Up</a></li>
             <li><a class="login" href="{{ url_for('login') }}">Log in</a></li>
             <li><a href="{{ url_for('logout') }}"><input type="button" value="LogOut"></a></li>
-        </ul>
+            <li><a class="createPost" href="{{ url_for('create_post') }}">Create Post</a></li>
 
+        </ul>
         </nav>
+
+        <div class="container">
+            <div class="row">
+                <h2>Filler right now</h2>
+            </div>
+
+        </div>
     </body>

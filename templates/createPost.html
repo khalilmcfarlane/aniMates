@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>Create Post</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../static/create-post.css">
+      <link rel="stylesheet" href="../static/bootstrap-5.0.2-dist 2/css/bootstrap.min.css">
+      <script src="../static/bootstrap-5.0.2-dist 2/js/bootstrap.min.js"> </script>
+  </head>
+  <body>
+    <nav>
+        <ul>
+            <li><a class="homepage" href="{{ url_for('index') }}">AniMates</a></li>
+            <li><a class="signup" href="{{ url_for('register') }}">Sign Up</a></li>
+            <li><a class="login" href="{{ url_for('login') }}">Login</a></li>
+        </ul>
+    </nav>
+
+<div class="post">
+    <div class="post_header">
+
+        <form method="post" action="/create" id="post_form">
+        <input type="text" class="title" name="title" placeholder="Title"/>
+        <div class="grow-wrap">
+            <textarea name="text" class="text" placeholder="Put your post here..."> </textarea>
+        </div>
+        <input type="file" class="form-control" id="customFile" />
+        <div class="post-options">
+            <button type="submit" class="btn"> Post</button>
+        </div>
+       </form>
+      
+    </div>
+</div>
